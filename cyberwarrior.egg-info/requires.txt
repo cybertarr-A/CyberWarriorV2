@@ -1,0 +1,6 @@
+gitpython
+transformers
+torch
+rich
+tqdm
+huggingface_hub

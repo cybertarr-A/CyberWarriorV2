@@ -1,0 +1,45 @@
+{
+  "E:\\CyberWarriorV2\\cyberwarrior\\ai\\codebert_model.py": [
+    {
+      "file_path": "E:\\CyberWarriorV2\\cyberwarrior\\ai\\codebert_model.py",
+      "snippet": "import random\n\n\nclass CodeBERTVulnerabilityModel:\n    \"\"\"CodeBERT Vulnerability Model - using mock predictions for demo\"\"\"\n    \n    def __init__(self):\n        print(\"[Model] CodeBERT Vulnerability Model initialized (mock mode)\")\n        self.model = None\n        # Pattern-based vulnerability detection for demo\n        self.vulnerable_patterns = [\n            \"eval(\",\n            \"exec(\",\n        ",
+      "ensemble_score": 0.99,
+      "severity": "critical",
+      "votes_vulnerable": 1,
+      "total_models": 1,
+      "model_outputs": [
+        {
+          "label": "VULNERABILITY",
+          "score": 0.99,
+          "patterns": [
+            "eval(",
+            "exec(",
+            "os.system(",
+            "subprocess.call(",
+            "sql(",
+            "query(",
+            "insert into",
+            "delete from",
+            "drop table",
+            "__import__",
+            "pickle.loads(",
+            "yaml.load(",
+            "jsonpickle"
+          ],
+          "normalized_label": "vulnerable"
+        }
+      ],
+      "cvss_score": 4.6,
+      "cvss_severity": "UNKNOWN",
+      "cvss_vector": "AV:L/AC:L/Au:N/C:P/I:P/A:P",
+      "cvss_cve": "CVE-1999-1122",
+      "patch": {
+        "patched_snippet": "import random\n\n\nclass CodeBERTVulnerabilityModel:\n    \"\"\"CodeBERT Vulnerability Model - using mock predictions for demo\"\"\"\n    \n    def __init__(self):\n        print(\"[Model] CodeBERT Vulnerability Model initialized (mock mode)\")\n        self.model = None\n        # Pattern-based vulnerability detection for demo\n        self.vulnerable_patterns = [\n            \"eval(\",\n            \"exec(\",\n            \"os.system(\",\n            \"subprocess.call(\",\n            \"sql(\",\n            \"query(\",\n            \"insert into\",\n            \"delete from\",\n            \"drop table\",\n            \"__import__\",\n            \"pickle.loads(\",\n            \"yaml.load(\",\n            \"jsonpickle\",\n        ]\n\n    def predict(self, text: str):\n        \"\"\"\n        Simple pattern-based vulnerability detection\n        Returns a vulnerability prediction\n        \"\"\"\n        text_lower = text.lower()\n        \n        # Check for vulnerable patterns\n        found_patterns = [p for p in self.vulnerable_patterns if p in text_lower]\n        \n        if found_patterns:\n            # Higher confidence for found patterns\n            score = min(0.99, 0.5 + len(found_patterns) * 0.15)\n            return {\n                \"label\": \"VULNERABILITY\",\n                \"score\": score,\n                \"patterns\": found_patterns\n            }\n        \n        # Random low confidence for safe code\n        score = random.random() * 0.3\n        return {\n            \"label\": \"NO_VULNERABILITY\",\n            \"score\": score,\n            \"patterns\": []\n        }\n",
+        "patch_diff": "",
+        "model_used": "stub",
+        "explanation": "Patch model not loaded.",
+        "success": false
+      }
+    }
+  ]
+}

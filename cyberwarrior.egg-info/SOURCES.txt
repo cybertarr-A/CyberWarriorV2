@@ -1,0 +1,6 @@
+setup.py
+cyberwarrior.egg-info/PKG-INFO
+cyberwarrior.egg-info/SOURCES.txt
+cyberwarrior.egg-info/dependency_links.txt
+cyberwarrior.egg-info/requires.txt
+cyberwarrior.egg-info/top_level.txt
